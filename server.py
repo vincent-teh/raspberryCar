@@ -35,7 +35,7 @@ def forward():
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.LOW)
 	return redirect("/")
-	
+
 @app.route("/backwards")
 @app.route("/backward")
 def backward():
@@ -51,7 +51,7 @@ def backward():
 	return redirect("/")
 
 @app.route("/left")
-def left():	
+def left():
 	GPIO.output(22, GPIO.LOW)
 	GPIO.output(27, GPIO.HIGH)
 	GPIO.output(23, GPIO.HIGH)
@@ -62,7 +62,7 @@ def left():
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.LOW)
 	return redirect("/")
-	
+
 @app.route("/right")
 def right():
 	GPIO.output(22, GPIO.HIGH)
@@ -76,6 +76,6 @@ def right():
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.LOW)
 	return redirect("/")
-	
+
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=8080, debug=True)
