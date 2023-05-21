@@ -67,5 +67,14 @@ def right():
 	GPIO.output(24, GPIO.LOW)
 	return redirect("/")
 
+@app.route("/stop")
+def forward():
+	GPIO.output(22, GPIO.LOW)
+	GPIO.output(27, GPIO.LOW)
+	GPIO.output(23, GPIO.LOW)
+	GPIO.output(24, GPIO.LOW)
+	sleep(1)
+	return redirect("/")
+
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=8080, debug=True)
