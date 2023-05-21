@@ -3,11 +3,12 @@ from flask import Flask, render_template,request,redirect,url_for
 import RPi.GPIO as GPIO
 from time import sleep
 
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 #motor A
-GPIO.setup(17, GPIO.OUT)
+GPIO.setup(22, GPIO.OUT)
 GPIO.setup(27, GPIO.OUT)
 
 #motor B
@@ -24,12 +25,12 @@ def tasks():
 
 @app.route("/forward")
 def forward():
-	GPIO.output(17, GPIO.HIGH)
+	GPIO.output(22, GPIO.HIGH)
 	GPIO.output(27, GPIO.LOW)
 	GPIO.output(23, GPIO.HIGH)
 	GPIO.output(24, GPIO.LOW)
 	sleep(1)
-	GPIO.output(17, GPIO.LOW)
+	GPIO.output(22, GPIO.LOW)
 	GPIO.output(27, GPIO.LOW)
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.LOW)
@@ -38,12 +39,12 @@ def forward():
 @app.route("/backwards")
 @app.route("/backward")
 def backward():
-	GPIO.output(17, GPIO.LOW)
+	GPIO.output(22, GPIO.LOW)
 	GPIO.output(27, GPIO.HIGH)
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.HIGH)
 	sleep(1)
-	GPIO.output(17, GPIO.LOW)
+	GPIO.output(22, GPIO.LOW)
 	GPIO.output(27, GPIO.LOW)
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.LOW)
@@ -51,12 +52,12 @@ def backward():
 
 @app.route("/left")
 def left():	
-	GPIO.output(17, GPIO.LOW)
+	GPIO.output(22, GPIO.LOW)
 	GPIO.output(27, GPIO.HIGH)
 	GPIO.output(23, GPIO.HIGH)
 	GPIO.output(24, GPIO.LOW)
 	sleep(1)
-	GPIO.output(17, GPIO.LOW)
+	GPIO.output(22, GPIO.LOW)
 	GPIO.output(27, GPIO.LOW)
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.LOW)
@@ -64,13 +65,13 @@ def left():
 	
 @app.route("/right")
 def right():
-	GPIO.output(17, GPIO.HIGH)
+	GPIO.output(22, GPIO.HIGH)
 	GPIO.output(27, GPIO.LOW)
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.HIGH)
 
 	sleep(1)
-	GPIO.output(17, GPIO.LOW)
+	GPIO.output(22, GPIO.LOW)
 	GPIO.output(27, GPIO.LOW)
 	GPIO.output(23, GPIO.LOW)
 	GPIO.output(24, GPIO.LOW)
