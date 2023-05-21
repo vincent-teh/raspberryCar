@@ -68,7 +68,7 @@ def right():
 	return redirect("/")
 
 @app.route("/stop")
-def forward():
+def stop():
 	GPIO.output(22, GPIO.LOW)
 	GPIO.output(27, GPIO.LOW)
 	GPIO.output(23, GPIO.LOW)
